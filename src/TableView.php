@@ -35,6 +35,7 @@ class TableView implements Htmlable
     protected $tableRowAttributes;
     protected $tableBodyClass;
     protected $childDetailsCallback = null;
+    protected $additionalColumn = false;
 
     /** @var Builder */
     protected $builder;
@@ -251,9 +252,9 @@ class TableView implements Htmlable
 
     public function render($id = null)
     {
-        if (count($this->columns) == 0) {
+        if (count($this->columns) == 0 || $this->additionalColumn === true) {
             if ($this->collection->count() > 0) {
-                $array = $this->collection->first()->toArray();
+                $array = (array)$this->collection->first();
 
                 foreach ($array as $key => $value) {
                     $this->column(str_replace('_', ' ', ucfirst($key)), $key);
@@ -289,6 +290,12 @@ class TableView implements Htmlable
         $this->columns[] = $column;
 
         return $this;
+    }
+
+    public function addAdditionalColumn($title, $value = null, $cast = null, $cssClasses = null)
+    {
+        $this->additionalColumn = true;
+        return $this->column($title, $value, $cast, $cssClasses);
     }
 
     public function __call($method, $parameters)

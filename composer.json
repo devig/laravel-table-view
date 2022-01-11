@@ -1,6 +1,6 @@
 {
-  "name": "kabbouchi/laravel-table-view",
-  "description": "Laravel 5 Package for easily displaying table views for Eloquent Collections.",
+  "name": "devig/laravel-table-view",
+  "description": "Laravel Package for easily displaying table views for Eloquent Collections.",
   "keywords": ["laravel", "table","view","table-view"],
   "license": "MIT",
   "authors": [
@@ -19,8 +19,8 @@
   },
   "require": {
     "php": ">=5.4",
-    "illuminate/support": "~5|~6|~7",
-    "illuminate/pagination": "~5|~6|~7"
+    "illuminate/support": "~5|~6|~7|~8|~9",
+    "illuminate/pagination": "~5|~6|~7|~8|~9"
   },
    "extra": {
       "laravel": {
